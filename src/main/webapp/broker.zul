@@ -1,0 +1,24 @@
+<window title="Broker's Application" width="1250px" border="normal"
+	apply="com.example.zkdemo.mvc.StockController">
+	<hbox align="left">
+	</hbox>
+	<listbox id="stockList" height="250px" emptyMessage="No stock found">
+		<listhead>
+			<listheader label="Name" />
+			<listheader label="Amount" />
+			<listheader label="Price" />
+		</listhead>
+		<template name="model">
+			<listitem>
+				<listcell label="${each.name}"></listcell>
+				<listcell label="${each.amount}"></listcell>
+				<listcell label="${each.price}"></listcell>
+			</listitem>
+		</template>
+	</listbox>
+	<hbox style="margin-top:20px">
+    <vbox>
+        <label id="footer" />
+    </vbox>
+</hbox>
+</window>

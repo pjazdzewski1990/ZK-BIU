@@ -1,0 +1,26 @@
+<window title="My First ZK Application" width="600px" border="normal"
+	apply="com.example.zkdemo.mvc.PersonController">
+	<hbox align="center">
+		Keyword:
+		<textbox id="keywordBox" />
+		<button id="searchButton" label="Search" />
+	</hbox>
+	<listbox id="personListbox" height="150px" emptyMessage="No persons found">
+		<listhead>
+			<listheader label="Name" />
+			<listheader label="Year of birth" />
+		</listhead>
+		<template name="model">
+			<listitem>
+				<listcell label="${each.firstName}"></listcell>
+				<listcell label="${each.yob}"></listcell>
+			</listitem>
+		</template>
+	</listbox>
+	<hbox style="margin-top:20px">
+    <vbox>
+        <label id="detailsFirstName" />
+        <label id="detailsYob" />
+    </vbox>
+</hbox>
+</window>

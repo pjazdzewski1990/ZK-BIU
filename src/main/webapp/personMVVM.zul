@@ -1,0 +1,27 @@
+<window title="My First ZK Application" width="600px" border="normal"
+	apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('com.example.zkdemo.mvvm.PersonVM')">
+	<hbox align="center">
+		Keyword:
+		<textbox value="@bind(vm.keyword)" />
+		<button id="searchButton" label="Search" onClick="@command('search')" />
+	</hbox>
+	<listbox model="@bind(vm.personList)" selectedItem="@bind(vm.selectedPerson)"
+		height="150px" emptyMessage="No persons found">
+		<listhead>
+			<listheader label="Name" />
+			<listheader label="Year of birth" />
+		</listhead>
+		<template name="model">
+			<listitem>
+				<listcell label="@bind(each.firstName)"></listcell>
+				<listcell label="@bind(each.yob)"></listcell>
+			</listitem>
+		</template>
+	</listbox>
+	<hbox style="margin-top:20px">
+		<vbox>
+			<label value="@bind(vm.selectedPerson.firstName)" />
+			<label value="@bind(vm.selectedPerson.yob)" />
+		</vbox>
+	</hbox>
+</window>
