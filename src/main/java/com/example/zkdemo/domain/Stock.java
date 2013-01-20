@@ -45,7 +45,7 @@ public class Stock {
 
 	@Override
 	public String toString() {
-		return "Stock [name=" + name + ", ammount=" + amount + ", price=" + price + "]";
+		return name;
 	}
 
 }

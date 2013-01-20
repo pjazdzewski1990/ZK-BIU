@@ -26,11 +26,21 @@ public class StockManager {
 	
 	public int save(Stock _stock){
 		db.add(_stock);
-		return 1;
+		return 1;//return id
 	}
 	
 	public List<Stock> list(){
 		return db;
 	}
 	
+	public int update(Stock st){
+		for(int i=0; i<db.size(); i++){
+			if(db.get(i).getName().equals(st.getName())){
+				db.get(i).setAmount(st.getAmount());
+				db.get(i).setPrice(st.getPrice());
+				return i;
+			}
+		}
+		return -1;	//return id of updated or -1
+	}
 }

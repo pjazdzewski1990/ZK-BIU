@@ -1,24 +1,75 @@
-<window title="Broker's Application" width="1250px" border="normal"
-	apply="com.example.zkdemo.mvc.StockController">
-	<hbox align="left">
+<window title="Broker's Application" width="100%" border="normal" apply="com.example.zkdemo.mvc.StockController">
+	<hbox align="center">
+		Header
 	</hbox>
-	<listbox id="stockList" height="250px" emptyMessage="No stock found">
-		<listhead>
-			<listheader label="Name" />
-			<listheader label="Amount" />
-			<listheader label="Price" />
-		</listhead>
-		<template name="model">
-			<listitem>
-				<listcell label="${each.name}"></listcell>
-				<listcell label="${each.amount}"></listcell>
-				<listcell label="${each.price}"></listcell>
-			</listitem>
-		</template>
-	</listbox>
-	<hbox style="margin-top:20px">
-    <vbox>
-        <label id="footer" />
-    </vbox>
-</hbox>
+	
+	<hbox>
+		<listbox id="stockList" width="620px" height="250px" emptyMessage="No stock found">
+			<listhead>
+				<listheader label="Name" />
+				<listheader label="Amount" />
+				<listheader label="Price" />
+			</listhead>
+			<template name="model">
+				<listitem>
+					<listcell label="${each.name}"></listcell>
+					<listcell label="${each.amount}"></listcell>
+					<listcell label="${each.price}"></listcell>
+				</listitem>
+			</template>
+		</listbox>
+	
+		<vbox>
+			<!-- odstep -->
+		</vbox>
+	
+		<listbox id="stockList2" width="620px" height="250px" emptyMessage="No stock found">
+			<listhead>
+				<listheader label="Name" />
+				<listheader label="Amount" />
+				<listheader label="Price" />
+			</listhead>
+			<template name="model">
+				<listitem>
+					<listcell label="${each.name}"></listcell>
+					<listcell label="${each.amount}"></listcell>
+					<listcell label="${each.price}"></listcell>
+				</listitem>
+			</template>
+		</listbox>
+	</hbox> <!-- end of main -->
+	
+	<!-- footer -->
+	<hbox style="margin-top:20px" width="100px">
+    	<vbox>
+        	<tabbox width="100%" >
+        <tabs id="tabs">
+            <tab label="Buy/Sell"/>
+            <tab label="Add new Stock"/>
+            <tab label="Export"/>
+        </tabs>
+        <tabpanels>
+            <tabpanel>
+                <hbox align="center">
+					Stock:
+					<combobox id="buyStock_Combobox" width="100px"/>
+				</hbox>
+				<hbox align="center">
+					Amount:
+					<textbox id="buyStock_Amount" />
+				</hbox>
+				<hbox align="center">
+					<button id="buyStock_Button" label="Buy/Sell" />
+				</hbox>
+            </tabpanel>
+            <tabpanel>
+                TAB 2t
+            </tabpanel>
+            <tabpanel>
+                TAB 3
+            </tabpanel>
+        </tabpanels>
+    </tabbox>
+    	</vbox>
+	</hbox>
 </window>
