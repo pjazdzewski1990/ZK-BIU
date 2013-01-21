@@ -63,7 +63,21 @@
 				</hbox>
             </tabpanel>
             <tabpanel>
-                TAB 2t
+                <hbox align="center">
+					Stock:
+					<textbox id="newStock_Name" />
+				</hbox>
+				<hbox align="center">
+					Amount:
+					<textbox id="newStock_Amount" />
+				</hbox>
+				<hbox align="center">
+					Price:
+					<textbox id="newStock_Price" />
+				</hbox>
+				<hbox align="center">
+					<button id="newStock_Button" label="Add" />
+				</hbox>
             </tabpanel>
             <tabpanel>
                 TAB 3

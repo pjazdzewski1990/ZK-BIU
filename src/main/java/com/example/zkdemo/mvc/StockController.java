@@ -1,5 +1,7 @@
 package com.example.zkdemo.mvc;
 
+import java.math.BigDecimal;
+
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
@@ -40,19 +42,23 @@ public class StockController extends SelectorComposer<Component> {
 
 	private void render() {
 		ListModelList<Stock> model = new ListModelList<Stock>(stockManager.list());
-		System.out.println("Model " + model);
         //set main list 
         stockList.setModel(model);
         //set combobox 
         buyStock_Combobox.setModel(model);
 	}
 	
-	@Listen("buyStock_Button = #searchButton")
-	private void buyStock(){
+	@Listen("onClick = #buyStock_Button")
+	public void buyStock(){
 		System.out.println("buyStock()");
+		
 		int ammount = Integer.parseInt(buyStock_Amount.getText());
 		Stock stock = buyStock_Combobox.getSelectedItem().getValue();
 		stock.setAmount(stock.getAmount()+ammount);
+		
+		BigDecimal mod = new BigDecimal(ammount).divide(stock.getPrice());
+		stock.setPrice(stock.getPrice().add(mod));
+		
 		stockManager.update(stock);
 		
 		render();
