@@ -72,6 +72,14 @@
 			<artifactId>zul</artifactId>
 			<version>6.5.0</version>
 		</dependency>
+		
+		<!-- JSON parsing -->
+		<dependency>
+        	<groupId>net.sf.json-lib</groupId>
+        	<artifactId>json-lib</artifactId>
+        	<version>2.4</version>
+        	<classifier>jdk15</classifier>
+    	</dependency>
 	</dependencies>
 	<build>
 		<finalName>zkdemo</finalName>
