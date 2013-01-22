@@ -23,67 +23,68 @@
 			<!-- odstep -->
 		</vbox>
 	
-		<listbox id="stockList2" width="620px" height="250px" emptyMessage="No stock found">
-			<listhead>
-				<listheader label="Name" />
-				<listheader label="Amount" />
-				<listheader label="Price" />
-			</listhead>
-			<template name="model">
-				<listitem>
-					<listcell label="${each.name}"></listcell>
-					<listcell label="${each.amount}"></listcell>
-					<listcell label="${each.price}"></listcell>
-				</listitem>
-			</template>
-		</listbox>
+		<tabbox width="100%" >
+        	<tabs id="charts_tabs">
+           		<tab label="Amount"/>
+           		<tab label="Price"/>
+       		</tabs>
+       		<tabpanels>
+           		<tabpanel>
+               		<flashchart id="charts_amount" width="500" height="250" type="pie"> </flashchart>
+           		</tabpanel>
+           		<tabpanel>
+               		<flashchart id="charts_price" width="500" height="250" type="column"> </flashchart>
+           		</tabpanel>
+        	</tabpanels>
+    	</tabbox>
+		
 	</hbox> <!-- end of main -->
 	
 	<!-- footer -->
 	<hbox style="margin-top:20px" width="100px">
     	<vbox>
         	<tabbox width="100%" >
-        <tabs id="tabs">
-            <tab label="Buy/Sell"/>
-            <tab label="Add new Stock"/>
-            <tab label="Export"/>
-        </tabs>
-        <tabpanels>
-            <tabpanel>
-                <hbox align="center">
-					Stock:
-					<combobox id="buyStock_Combobox" width="100px"/>
-				</hbox>
-				<hbox align="center">
-					Amount:
-					<textbox id="buyStock_Amount" />
-				</hbox>
-				<hbox align="center">
-					<button id="buyStock_Button" label="Buy/Sell" />
-				</hbox>
-            </tabpanel>
-            <tabpanel>
-                <hbox align="center">
-					Stock:
-					<textbox id="newStock_Name" />
-				</hbox>
-				<hbox align="center">
-					Amount:
-					<textbox id="newStock_Amount" />
-				</hbox>
-				<hbox align="center">
-					Price:
-					<textbox id="newStock_Price" />
-				</hbox>
-				<hbox align="center">
-					<button id="newStock_Button" label="Add" />
-				</hbox>
-            </tabpanel>
-            <tabpanel>
-                TAB 3
-            </tabpanel>
-        </tabpanels>
-    </tabbox>
+        		<tabs id="stock_tabs">
+            		<tab label="Buy/Sell"/>
+            		<tab label="Add new Stock"/>
+            		<tab label="Export"/>
+        		</tabs>
+        		<tabpanels>
+            		<tabpanel>
+                		<hbox align="center">
+							Stock:
+							<combobox id="buyStock_Combobox" width="100px"/>
+						</hbox>
+						<hbox align="center">
+							Amount:
+							<textbox id="buyStock_Amount" />
+						</hbox>
+						<hbox align="center">
+							<button id="buyStock_Button" label="Buy/Sell" />
+						</hbox>
+            		</tabpanel>
+            		<tabpanel>
+                		<hbox align="center">
+							Stock:
+							<textbox id="newStock_Name" />
+						</hbox>
+						<hbox align="center">
+							Amount:
+							<textbox id="newStock_Amount" />
+						</hbox>
+						<hbox align="center">
+							Price:
+							<textbox id="newStock_Price" />
+						</hbox>
+						<hbox align="center">
+							<button id="newStock_Button" label="Add" />
+						</hbox>
+            		</tabpanel>
+            		<tabpanel>
+                		TAB 3
+            		</tabpanel>
+        		</tabpanels>
+    		</tabbox>
     	</vbox>
 	</hbox>
 </window>

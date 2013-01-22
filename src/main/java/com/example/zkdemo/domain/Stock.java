@@ -1,10 +1,8 @@
 package com.example.zkdemo.domain;
 
-import java.math.BigDecimal;
-
 public class Stock {
 
-	public Stock(String name, long amount, BigDecimal price) {
+	public Stock(String name, long amount, double price) {
 		super();
 		this.name = name;
 		this.amount = amount;
@@ -17,7 +15,7 @@ public class Stock {
 	
 	private String name = "unknown";
 	private long amount = 0;
-	private BigDecimal  price = new BigDecimal(0);
+	private double  price = 0;
 
 	public String getName() {
 		return name;
@@ -35,11 +33,11 @@ public class Stock {
 		this.amount = ammount;
 	}
 
-	public BigDecimal getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(BigDecimal price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 

@@ -13,9 +13,9 @@ public class StockManager {
 	 * TODO: for the time being we don't use DB
 	 */
 	public StockManager() {
-		db.add(new Stock("Oracle", 1000, new BigDecimal(100)));
-		db.add(new Stock("Microsoft", 1500, new BigDecimal(90)));
-		db.add(new Stock("Google", 500, new BigDecimal(210)));
+		db.add(new Stock("Oracle", 1000, 100));
+		db.add(new Stock("Microsoft", 1500, 90));
+		db.add(new Stock("Google", 500, 210));
 	}
 	
 	private List<Stock> db = new ArrayList<Stock>();

@@ -18,9 +18,9 @@
 		</template>
 	</listbox>
 	<hbox style="margin-top:20px">
-    <vbox>
-        <label id="detailsFirstName" />
-        <label id="detailsYob" />
-    </vbox>
-</hbox>
+    	<vbox>
+        	<label id="detailsFirstName" />
+        	<label id="detailsYob" />
+    	</vbox>
+	</hbox>
 </window>
