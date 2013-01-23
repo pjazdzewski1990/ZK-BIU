@@ -10,4 +10,12 @@ public class Info {
 		text = _text;
 	}
 
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String _text) {
+		this.text = _text;
+	}
+
 }

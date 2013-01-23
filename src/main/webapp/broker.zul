@@ -1,10 +1,11 @@
+<vbox align="center">
 <window title="Broker's Application" width="100%" border="normal" apply="com.example.zkdemo.mvc.StockController">
 	<hbox align="center">
 		<!-- Header -->
 	</hbox>
 	
 	<hbox>
-		<listbox id="stockList" width="620px" height="300px" emptyMessage="No stock found">
+		<listbox id="stockList" width="650px" height="250px" emptyMessage="No stock found">
 			<listhead>
 				<listheader label="Name" />
 				<listheader label="Amount" />
@@ -23,17 +24,17 @@
 			<!-- odstep -->
 		</vbox>
 	
-		<tabbox width="100%" height="300px" >
+		<tabbox width="100%" height="250px" >
         	<tabs id="charts_tabs">
            		<tab label="Amount"/>
            		<tab label="Price"/>
        		</tabs>
        		<tabpanels>
            		<tabpanel>
-               		<flashchart id="charts_amount" width="620px" height="250px" type="pie"> </flashchart>
+               		<flashchart id="charts_amount" width="650px" height="220px" type="pie"> </flashchart>
            		</tabpanel>
            		<tabpanel>
-               		<flashchart id="charts_price" width="620px" height="250px" type="column"> </flashchart>
+               		<flashchart id="charts_price" width="650px" height="250px" type="column"> </flashchart>
            		</tabpanel>
         	</tabpanels>
     	</tabbox>
@@ -95,17 +96,26 @@
 						</hbox>
             		</tabpanel>
             		<tabpanel>
-                		<vbox>
-                		</vbox>
+                		<hbox align="center">
+                			<vbox>
+								Export data to Microsoft Office Excel file
+							</vbox>
+						</hbox>
+						<hbox align="center">
+							<vbox>
+								<button id="export_Button" label="Export" />
+							</vbox>
+						</hbox>
             		</tabpanel>
         		</tabpanels>
     		</tabbox>
     	</vbox>
 	</hbox>
 </window>
-
 <window title="Broker's info" width="100%" border="normal" apply="com.example.zkdemo.mvc.InfoController">
-	<listbox id="infoList" width="1250px" height="200px" emptyMessage="No infos found">
+	<timer id="info_progressTimer" delay="1000" repeats="true"></timer>
+	<progressmeter id="info_progress" value="75" width="1300px" />
+	<listbox id="info_list" width="1300px" height="125px" emptyMessage="No informations found">
 		<listhead>
 			<listheader label="Information" />
 		</listhead>
@@ -116,3 +126,4 @@
 		</template>
 	</listbox>
 </window>
+</vbox>

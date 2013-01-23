@@ -1,6 +1,9 @@
 package com.example.zkdemo.mvc;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.List;
 
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.metainfo.EventHandler;
@@ -10,6 +13,7 @@ import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zul.Button;
 import org.zkoss.zul.CategoryModel;
 import org.zkoss.zul.Combobox;
+import org.zkoss.zul.Filedownload;
 import org.zkoss.zul.Flash;
 import org.zkoss.zul.Flashchart;
 import org.zkoss.zul.ListModelList;
@@ -51,6 +55,8 @@ public class StockController extends SelectorComposer<Component> {
 	Flashchart charts_amount = new Flashchart();
 	@Wire
 	Flashchart charts_price = new Flashchart();
+	
+	//export_*
 	
 	public StockController(){ }
 
@@ -101,5 +107,15 @@ public class StockController extends SelectorComposer<Component> {
 		stockManager.save(new Stock(name, amount, price));
 		
 		render();
+	}
+	
+	@Listen("onClick = #export_Button")
+	public void export() throws IOException{
+		List<Stock> data = stockManager.list();
+		ByteArrayOutputStream bout = new ByteArrayOutputStream();
+		//ss.getBook().write(bout);
+		bout.close();
+		Filedownload.save(bout.toByteArray(), 
+			"application/vnd.ms-excel", "name.xls");
 	}
 }

@@ -16,6 +16,9 @@ public class StockManager {
 		db.add(new Stock("Oracle", 1000, 100));
 		db.add(new Stock("Microsoft", 1500, 90));
 		db.add(new Stock("Google", 500, 210));
+		db.add(new Stock("Intel", 600, 180));
+		db.add(new Stock("Red Hat", 1600, 105));
+		db.add(new Stock("VMWare", 800, 150));
 	}
 	
 	private List<Stock> db = new ArrayList<Stock>();
