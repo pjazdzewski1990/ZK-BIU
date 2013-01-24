@@ -111,9 +111,26 @@ public class StockController extends SelectorComposer<Component> {
 	
 	@Listen("onClick = #export_Button")
 	public void export() throws IOException{
-		List<Stock> data = stockManager.list();
 		ByteArrayOutputStream bout = new ByteArrayOutputStream();
-		//ss.getBook().write(bout);
+
+		bout.write("Stock;".getBytes());
+		bout.write("Amount;".getBytes());
+		bout.write(("Price;").getBytes());
+		bout.write("\n".getBytes());
+
+		for(Stock s : stockManager.list()){
+			bout.write(s.getName().getBytes());
+			bout.write(";".getBytes());
+			
+			bout.write((""+s.getAmount()).getBytes());
+			bout.write(";".getBytes());
+			
+			bout.write((""+s.getPrice()).getBytes());
+			bout.write(";".getBytes());
+			
+			bout.write("\n".getBytes());
+		}
+		
 		bout.close();
 		Filedownload.save(bout.toByteArray(), 
 			"application/vnd.ms-excel", "name.xls");

@@ -30,7 +30,6 @@ import org.zkoss.zul.Progressmeter;
 import org.zkoss.zul.Timer;
 
 import com.example.zkdemo.domain.Info;
-import com.example.zkdemo.domain.Stock;
 
 public class InfoController extends SelectorComposer<Component> {
 
@@ -73,7 +72,6 @@ public class InfoController extends SelectorComposer<Component> {
     }
 	
 	private void render(){
-		System.out.println("render()");
 		ListModelList<Info> model = new ListModelList<Info>(parseInfo(getResponse(url)));
         //set main list 
         info_list.setModel(model);
@@ -82,14 +80,14 @@ public class InfoController extends SelectorComposer<Component> {
 	private List<Info> parseInfo(String jsonText){
 		List<Info> infos = new ArrayList<Info>();
 		
-		JSONObject json = (JSONObject) JSONSerializer.toJSON( jsonText ); 
+		/*JSONObject json = (JSONObject) JSONSerializer.toJSON( jsonText ); 
 		JSONArray results = json.getJSONArray("results");
 		for (int i=0; i<results.size(); i++) {
 			JSONObject article = results.getJSONObject(i);
 			infos.add(new Info(article.getString("body")+"..."));
 		}
 		
-		Collections.shuffle(infos);
+		Collections.shuffle(infos);*/
 		return infos;
 	}
 	
