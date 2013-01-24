@@ -74,19 +74,19 @@
                 		<hbox align="center">
                 			<vbox>
 								Stock:
-								<textbox id="newStock_Name" />
+								<textbox id="newStock_Name" constraint="/.+/ :Name cannot be empty" />
 							</vbox>
 						</hbox>
 						<hbox align="center">
 							<vbox>
 								Amount:
-								<textbox id="newStock_Amount" />
+								<textbox id="newStock_Amount" constraint="/^\d+$/ :Amount cannot be empty or negative" />
 							</vbox>
 						</hbox>
 						<hbox align="center">
 							<vbox>
 								Price:
-								<textbox id="newStock_Price" />
+								<textbox id="newStock_Price" constraint="/^\d+$/ :Amount cannot be empty or negative"/>
 							</vbox>
 						</hbox>
 						<hbox align="center">
