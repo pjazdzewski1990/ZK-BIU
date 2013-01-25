@@ -98,7 +98,7 @@
             		<tabpanel>
                 		<hbox align="center">
                 			<vbox>
-								Export data to Microsoft Office Excel file
+								Export data to Excel
 							</vbox>
 						</hbox>
 						<hbox align="center">

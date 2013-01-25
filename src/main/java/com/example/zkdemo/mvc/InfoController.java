@@ -80,33 +80,46 @@ public class InfoController extends SelectorComposer<Component> {
 	private List<Info> parseInfo(String jsonText){
 		List<Info> infos = new ArrayList<Info>();
 		
-		/*JSONObject json = (JSONObject) JSONSerializer.toJSON( jsonText ); 
+		//infos = brokeNYTTemp();
+		JSONObject json = (JSONObject) JSONSerializer.toJSON( jsonText ); 
 		JSONArray results = json.getJSONArray("results");
 		for (int i=0; i<results.size(); i++) {
 			JSONObject article = results.getJSONObject(i);
 			infos.add(new Info(article.getString("body")+"..."));
 		}
 		
-		Collections.shuffle(infos);*/
+		Collections.shuffle(infos);
 		return infos;
 	}
-	
+
 	public String getResponse(URL theURL){
-	    try {
+		StringBuilder response = new StringBuilder();
+		try {
 	      //get the HTTP response
 	      HttpURLConnection con = (HttpURLConnection)theURL.openConnection();
 	      BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
 	      String line;
-	      StringBuilder response = new StringBuilder();
-	      while ((line = reader.readLine()) != null) {
+	      
+	      System.out.println("----------------------------------" + con.getResponseCode() );
+	      if (con.getResponseCode() == 200) {
+	    	while ((line = reader.readLine()) != null) {
 	          //System.out.println(line);
-	          response.append(line.replaceAll("&(.*?);", " "));
+	    	  response.append(line.replaceAll("&(.*?);", " "));
+	      	}
+	      } else {
+	    	  response = brokenApiResponse();
 	      }
-	      //System.out.println("Web response is " + response);
-	      return response.toString();
 	    } catch( IOException e ) {
 	      System.out.println( "GetResponse.GetResponse - error opening or reading URL: " + e );
-	      return "";
+	      
+	      response = brokenApiResponse();
 	    }
+	    
+	    return response.toString();
+	}
+
+	private StringBuilder brokenApiResponse() {
+		StringBuilder sb = new StringBuilder("{\"results\":[{\"body\":\"NYT API has failed\"}]}");
+		return sb;
 	}
 }
